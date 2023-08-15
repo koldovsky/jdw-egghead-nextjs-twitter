@@ -6,14 +6,11 @@ import React from "react";
 
 export default async function Login() {
     const supabase = await createServerComponentClient<Database>({ cookies });
-    console.log({supabase});
 
     const {
         data: { session }
     } = await supabase.auth.getSession();
                                     
-    console.log({session});
-
     if (session) {
         redirect('/');
     }
